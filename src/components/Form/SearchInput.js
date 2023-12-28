@@ -10,11 +10,11 @@ const SearchInput = () => {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        `/api/v1/product/search/${values.keyword}`
+        `https://shopsavvy-backend.onrender.com/api/v1/product/search/${values.keyword}`
       );
       setValues({ ...values, results: data });
       navigate("/search");
-    }catch(error) {
+    } catch (error) {
       console.log(error)
     }
   };

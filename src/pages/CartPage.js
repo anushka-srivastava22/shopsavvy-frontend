@@ -49,7 +49,7 @@ const CartPage = () => {
   //get payment gateway token
   const getToken = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/braintree/token");
+      const { data } = await axios.get("https://shopsavvy-backend.onrender.com/api/v1/product/braintree/token");
       setClientToken(data?.clientToken);
     } catch (error) {
       console.log(error);
@@ -64,7 +64,7 @@ const CartPage = () => {
     try {
       setLoading(true);
       const { nonce } = await instance.requestPaymentMethod();
-      const { data } = await axios.post("/api/v1/product/braintree/payment", {
+      const { data } = await axios.post("https://shopsavvy-backend.onrender.com/api/v1/product/braintree/payment", {
         nonce,
         cart,
       });
@@ -109,7 +109,7 @@ const CartPage = () => {
                     <Image
                       objectFit='cover'
                       maxW={{ base: '100%', sm: '200px' }}
-                      src={`/api/v1/product/product-photo/${p._id}`}
+                      src={`https://shopsavvy-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top "
                       alt={p.name}
                     />
@@ -119,9 +119,9 @@ const CartPage = () => {
                         <Heading size='md'>{p.name}</Heading>
 
                         <Text py='2'>
-                        {p.description.substring(0, 30)}
-                        <br/>
-                        Price : {p.price}
+                          {p.description.substring(0, 30)}
+                          <br />
+                          Price : {p.price}
                         </Text>
                       </CardBody>
 

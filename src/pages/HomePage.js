@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
 import { AiOutlineReload } from "react-icons/ai";
 //import "../styles/Homepage.css";
-import { Card, Checkbox,Radio,RadioGroup, CardBody, CardFooter, Button, Text, Divider, ButtonGroup, Image, Stack, Heading } from '@chakra-ui/react'
+import { Card, Checkbox, Radio, RadioGroup, CardBody, CardFooter, Button, Text, Divider, ButtonGroup, Image, Stack, Heading } from '@chakra-ui/react'
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const HomePage = () => {
   //get all cat
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get("https://shopsavvy-backend.onrender.com/api/v1/category/get-category");
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -41,7 +41,7 @@ const HomePage = () => {
   const getAllProducts = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(`https://shopsavvy-backend.onrender.com/api/v1/product/product-list/${page}`);
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
@@ -53,7 +53,7 @@ const HomePage = () => {
   //getTOtal COunt
   const getTotal = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/product-count");
+      const { data } = await axios.get("https://shopsavvy-backend.onrender.com/api/v1/product/product-count");
       setTotal(data?.total);
     } catch (error) {
       console.log(error);
@@ -68,7 +68,7 @@ const HomePage = () => {
   const loadMore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(`https://shopsavvy-backend.onrender.com/api/v1/product/product-list/${page}`);
       setLoading(false);
       setProducts([...products, ...data?.products]);
     } catch (error) {
@@ -98,7 +98,7 @@ const HomePage = () => {
   //get filterd product
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post("/api/v1/product/product-filters", {
+      const { data } = await axios.post("https://shopsavvy-backend.onrender.com/api/v1/product/product-filters", {
         checked,
         radio,
       });
@@ -160,7 +160,7 @@ const HomePage = () => {
                 <Card maxW='sm'>
                   <CardBody>
                     <Image
-                      src={`/api/v1/product/product-photo/${p._id}`}
+                      src={`https://shopsavvy-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top"
                       alt={p.name}
                       borderRadius='lg'
