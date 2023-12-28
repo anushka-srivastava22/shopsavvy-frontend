@@ -39,7 +39,7 @@ const Login = () => {
     }
   };
   return (
-    <Layout title="Register - Ecommer App">
+    <Layout title="Register - Shopsavvy App">
       <div className="form-container ">
         <form onSubmit={handleSubmit}>
           <h4 className="title">LOGIN FORM</h4>
@@ -70,18 +70,18 @@ const Login = () => {
             <button type="submit" className="btn btn-primary">
               LOGIN
             </button>
-            
+
           </div>
           <button
-              type="button"
-              className="btn btn-primary"
-              onClick={() => {
-                navigate("/forgot-password");
-              }}
-            >
-              Forgot Password
+            type="button"
+            className="btn btn-primary"
+            onClick={() => {
+              navigate("/forgot-password");
+            }}
+          >
+            Forgot Password
           </button>
-          
+
         </form>
       </div>
     </Layout>
